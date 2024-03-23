@@ -3,7 +3,7 @@ import App from "./App";
 
 it("should say something", ()=>{
     render(<App />)
-    const message = screen.queryByText(/Hello world/i);
-    expect(message).toBeDefined();
-    expect(message).toBeVisible();
+    const message = screen.queryAllByText(/boxeo/i);
+    expect(message[1]).toBeDefined();
+    expect(message[1]).toBeVisible();
 })

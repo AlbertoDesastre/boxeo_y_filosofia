@@ -1,14 +1,14 @@
 
 
 // this component is used exclusively to render a dropdown menu, having a name ("option") and a link to redirect ("redirection")
-function Dropdown({select , toggle}: {select: Array<{option:string, redirection:string}>, toggle:boolean}) {
+function Dropdown({dropdown , toggle}: {dropdown: Array<{option:string, redirection:string}>, toggle:boolean}) {
 
   
   return (
     <ul>
-    {select.map((sltc)=>{
+    {dropdown.map((sltc)=>{
         return  ( 
-         <li key={sltc.option}  className={toggle ? 'show-select' : 'hide'}>
+         <li key={sltc.option}  className={toggle ? 'show-dropdown' : 'hide'}>
             <a href={sltc.redirection}> {sltc.option} </a>
         </li>   )
     })}

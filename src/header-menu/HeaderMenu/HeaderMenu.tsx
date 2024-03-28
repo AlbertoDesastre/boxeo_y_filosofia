@@ -1,5 +1,5 @@
 import { Menu } from './assets/menuOptions'
-import logo from "../../../public/imgs/boxeo_y_filosofia_shortened.png"
+import logo from "../../imgs/boxeo_y_filosofia_shortened.png"
 import Option from './Option/Option'
 import Dropdown from './Dropdown/Dropdown'
 import { useState } from 'react'
@@ -14,7 +14,7 @@ function HeaderMenu({menuOptions}: {menuOptions:Menu}) {
         {menuOptions.map((options => {
           // every option renders it's own component. If that option has a select, it means it needs a dropdown menu
         return <Option key={options.main.title} options={options} setToggle={setToggle} toggle={toggle}> 
-          {<Dropdown select={options.select} toggle={toggle} />}
+          {<Dropdown dropdown={options.dropdown} toggle={toggle} />}
         </Option>
         }))}
       </nav>

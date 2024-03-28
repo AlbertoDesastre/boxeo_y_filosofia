@@ -1,6 +1,6 @@
 export type MenuOption = {
   main: { title: string; redirection: string };
-  select: Array<{ option: string; redirection: string }>;
+  dropdown: Array<{ option: string; redirection: string }>;
 };
 
 export type Menu = Array<MenuOption>;
@@ -8,7 +8,7 @@ export type Menu = Array<MenuOption>;
 export const menuOptions: Menu = [
   {
     main: { title: "¿Qué es esto?", redirection: "/origen" },
-    select: [
+    dropdown: [
       {
         option: "Filosofía dentro del boxeo",
         redirection: "/filosofia-en-boxeo",
@@ -20,7 +20,7 @@ export const menuOptions: Menu = [
   },
   {
     main: { title: "Más información", redirection: "/mas-info" },
-    select: [
+    dropdown: [
       {
         option: "Quién soy",
         redirection: "/quien-soy",
@@ -30,10 +30,10 @@ export const menuOptions: Menu = [
   },
   {
     main: { title: "Bibliografía", redirection: "/bibliografia" },
-    select: [],
+    dropdown: [],
   },
   {
     main: { title: "Opina tú", redirection: "/registro" },
-    select: [],
+    dropdown: [],
   },
 ];

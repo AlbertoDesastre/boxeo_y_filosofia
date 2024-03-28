@@ -75,15 +75,13 @@ describe('Dropdown', () => {
       unrelatedDropdown: screen.queryByText(/Queso/i),
     }
 
-    // if the user hasn't click on an option, "dropdown/s" shouldn't render
-    expect(utils.option).toBeVisible()
-    expect(utils.dropdown).not.toBeVisible()
-    expect(utils.unrelatedOption).toBeVisible()
-    expect(utils.unrelatedDropdown).not.toBeVisible()
-
-    // if the user clicks on the option with a dropdown, it should render ONLY that dropdown
+    // renders the first option
     await user.click(utils.option as Element)
     expect(utils.dropdown).toBeVisible()
-    expect(utils.unrelatedDropdown).not.toBeVisible()
+
+    //now they click on another option, closing the rest of dropdown except this one
+    await user.click(utils.unrelatedOption as Element)
+    expect(utils.unrelatedDropdown).toBeVisible()
+    expect(utils.dropdown).not.toBeVisible()
   })
 })

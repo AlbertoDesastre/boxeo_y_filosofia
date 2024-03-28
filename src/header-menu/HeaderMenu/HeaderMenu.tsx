@@ -24,7 +24,7 @@ function HeaderMenu({ menuOptions }: { menuOptions: Menu }) {
   return (
     <header className='flex' style={{ backgroundColor: '#fff8e7' }}>
       <img className='w-36' src={logo} />
-      <nav className='flex items-end '>
+      <nav className='flex items-end gap-4'>
         {menuOptions.map((options) => {
           // every option renders it's own component. If that option has a select, it means it needs a dropdown menu
           return (

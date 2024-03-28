@@ -1,6 +1,16 @@
 import { DropdownState } from '../HeaderMenu'
 import './Dropdown.css'
 
+const reset = (dropdowns: DropdownState) => {
+  const resettedDropdowns: DropdownState = {}
+
+  Object.keys(dropdowns).forEach((key) => {
+    resettedDropdowns[key] = false
+  })
+
+  return resettedDropdowns
+}
+
 function Dropdown({
   title,
   dropdown,
@@ -12,6 +22,7 @@ function Dropdown({
   setShowDropdown: React.Dispatch<React.SetStateAction<DropdownState>>
   showDropdown: DropdownState
 }) {
+  reset(showDropdown)
   return (
     <section className='flex flex-col text-gray-400 gap-3'>
       <h2>
@@ -19,7 +30,7 @@ function Dropdown({
           onClick={() => {
             // this beautiful piece of code means that the object will spread entirely, but only the dropdown owned
             // by the title will toggle it's value.
-            setShowDropdown({ ...showDropdown, [title]: !showDropdown[title] })
+            setShowDropdown({ ...reset(showDropdown), [title]: !showDropdown[title] })
           }}
         >
           {title}

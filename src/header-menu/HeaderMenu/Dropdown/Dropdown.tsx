@@ -1,30 +1,35 @@
+import { DropdownState } from '../HeaderMenu'
+import './Dropdown.css'
+
 function Dropdown({
   title,
   dropdown,
-  setToggle,
-  toggle,
+  setShowDropdown,
+  showDropdown,
 }: {
   title: string
   dropdown: Array<{ option: string; redirection: string }>
-  setToggle: React.Dispatch<React.SetStateAction<boolean>>
-  toggle: boolean
+  setShowDropdown: React.Dispatch<React.SetStateAction<DropdownState>>
+  showDropdown: DropdownState
 }) {
   return (
     <section className='flex flex-col text-gray-400 gap-3'>
       <h2>
         <p
           onClick={() => {
-            setToggle(!toggle)
+            // this beautiful piece of code means that the object will spread entirely, but only the dropdown owned
+            // by the title will toggle it's value.
+            setShowDropdown({ ...showDropdown, [title]: !showDropdown[title] })
           }}
         >
           {title}
         </p>
       </h2>
 
-      {toggle && (
-        <ul>
+      {showDropdown && (
+        <ul className='absolute mt-5' style={{ backgroundColor: '#fff8e7' }}>
           {dropdown.map((sltc) => (
-            <li key={sltc.option} className={toggle ? 'show-dropdown' : 'hide'}>
+            <li key={sltc.option} className={showDropdown[title] ? 'show-dropdown' : 'hide'}>
               <a href={sltc.redirection}>{sltc.option}</a>
             </li>
           ))}

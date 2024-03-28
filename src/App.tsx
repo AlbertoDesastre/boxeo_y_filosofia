@@ -1,10 +1,8 @@
-import './App.css'
+import './index.css'
 import HeaderMenu from './header-menu/HeaderMenu/HeaderMenu'
 import { menuOptions } from './header-menu/HeaderMenu/assets/menuOptions'
 
 function App() {
-
-
   return (
     <>
       <HeaderMenu menuOptions={menuOptions} />

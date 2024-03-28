@@ -1,18 +1,36 @@
-
-
-// this component is used exclusively to render a dropdown menu, having a name ("option") and a link to redirect ("redirection")
-function Dropdown({dropdown , toggle}: {dropdown: Array<{option:string, redirection:string}>, toggle:boolean}) {
-
-  
+function Dropdown({
+  title,
+  dropdown,
+  setToggle,
+  toggle,
+}: {
+  title: string
+  dropdown: Array<{ option: string; redirection: string }>
+  setToggle: React.Dispatch<React.SetStateAction<boolean>>
+  toggle: boolean
+}) {
   return (
-    <ul>
-    {dropdown.map((sltc)=>{
-        return  ( 
-         <li key={sltc.option}  className={toggle ? 'show-dropdown' : 'hide'}>
-            <a href={sltc.redirection}> {sltc.option} </a>
-        </li>   )
-    })}
-   </ul>
+    <section className='flex flex-col text-gray-400 gap-3'>
+      <h2>
+        <p
+          onClick={() => {
+            setToggle(!toggle)
+          }}
+        >
+          {title}
+        </p>
+      </h2>
+
+      {toggle && (
+        <ul>
+          {dropdown.map((sltc) => (
+            <li key={sltc.option} className={toggle ? 'show-dropdown' : 'hide'}>
+              <a href={sltc.redirection}>{sltc.option}</a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </section>
   )
 }
 

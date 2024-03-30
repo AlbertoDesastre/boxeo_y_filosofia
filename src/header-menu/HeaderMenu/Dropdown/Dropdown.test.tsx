@@ -68,6 +68,7 @@ describe('Dropdown', () => {
 
   test('should show a Dropdown clicked and close all the rests', async () => {
     const { user } = setup(<HeaderMenu menuOptions={mockOptions} />)
+
     const utils = {
       option: screen.queryByText(/Artículos/i),
       dropdown: screen.queryByText(/Reflexiones/i),
@@ -78,10 +79,13 @@ describe('Dropdown', () => {
     // renders the first option
     await user.click(utils.option as Element)
     expect(utils.dropdown).toBeVisible()
+    expect(utils.unrelatedDropdown).not.toBeVisible()
 
     //now they click on another option, closing the rest of dropdown except this one
     await user.click(utils.unrelatedOption as Element)
     expect(utils.unrelatedDropdown).toBeVisible()
     expect(utils.dropdown).not.toBeVisible()
   })
+
+  test('should close all Dropdowns when the title loses focus', async () => {})
 })

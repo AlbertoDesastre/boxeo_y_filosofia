@@ -19,7 +19,6 @@ function HeaderMenu({ menuOptions }: { menuOptions: Menu }) {
   const [showDropdown, setShowDropdown] = useState<DropdownState>(
     setInitialDropdownState(menuOptions),
   )
-  //console.log(setInitialDropdownState(menuOptions))
 
   return (
     <header className='flex' style={{ backgroundColor: '#fff8e7' }}>

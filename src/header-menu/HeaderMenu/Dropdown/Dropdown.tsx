@@ -1,15 +1,6 @@
 import { DropdownState } from '../HeaderMenu'
 import './Dropdown.css'
-
-const reset = (dropdowns: DropdownState) => {
-  const resettedDropdowns: DropdownState = {}
-
-  Object.keys(dropdowns).forEach((key) => {
-    resettedDropdowns[key] = false
-  })
-
-  return resettedDropdowns
-}
+import { useDropdown } from './useDropdown'
 
 function Dropdown({
   title,
@@ -22,7 +13,8 @@ function Dropdown({
   setShowDropdown: React.Dispatch<React.SetStateAction<DropdownState>>
   showDropdown: DropdownState
 }) {
-  reset(showDropdown)
+  const { reset } = useDropdown()
+  console.log(showDropdown)
   return (
     <section className='flex flex-col text-gray-400 gap-3'>
       <h2>

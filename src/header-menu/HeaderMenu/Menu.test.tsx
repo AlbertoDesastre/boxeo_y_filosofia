@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react'
-import HeaderMenu from './HeaderMenu'
-import { Menu } from './assets/menuOptions'
+import Menu from './Menu'
+import { MenuOptions } from './assets/menuOptions'
 
-const mockOptions: Menu = [
+const mockOptions: MenuOptions = [
   {
     main: { title: '¿Qué es esto?', redirection: '/about' },
     dropdown: [
@@ -35,9 +35,9 @@ const mockOptions: Menu = [
   },
 ]
 
-describe('Header Menu - Options', () => {
+describe('Menu - Options', () => {
   test('should render options provided, with correct styles (display flex on <header> and <nav>)', () => {
-    render(<HeaderMenu menuOptions={mockOptions} />)
+    render(<Menu menuOptions={mockOptions} />)
 
     //renders the options
     expect(screen.queryByText(/Tesoros/i)).toBeInTheDocument()

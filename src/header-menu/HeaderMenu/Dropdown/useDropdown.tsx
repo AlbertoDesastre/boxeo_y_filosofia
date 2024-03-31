@@ -1,4 +1,4 @@
-import { DropdownState } from '../HeaderMenu'
+import { DropdownState } from '../Menu'
 
 export function useDropdown() {
   const updateActiveDropdown = ({

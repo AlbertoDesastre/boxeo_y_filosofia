@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import HeaderMenu from '../HeaderMenu'
-import { Menu } from '../assets/menuOptions'
+import Menu from '../Menu'
+import { MenuOptions } from '../assets/menuOptions'
 
-const mockOptions: Menu = [
+const mockOptions: MenuOptions = [
   {
     main: { title: '¿Qué es esto?', redirection: '/about' },
     dropdown: [
@@ -46,7 +46,7 @@ function setup(component: JSX.Element) {
 describe('Dropdown', () => {
   test('should render only the Dropdown owned by an option (one click = one dropdown)', async () => {
     // this {user} is equivalent to returning userEvent, to perform user interactions with the DOM
-    const { user } = setup(<HeaderMenu menuOptions={mockOptions} />)
+    const { user } = setup(<Menu menuOptions={mockOptions} />)
     const utils = {
       option: screen.queryByText(/Artículos/i),
       dropdown: screen.queryByText(/Reflexiones/i),
@@ -67,7 +67,7 @@ describe('Dropdown', () => {
   })
 
   test('should show a Dropdown clicked and close all the rests', async () => {
-    const { user } = setup(<HeaderMenu menuOptions={mockOptions} />)
+    const { user } = setup(<Menu menuOptions={mockOptions} />)
 
     const utils = {
       option: screen.queryByText(/Artículos/i),

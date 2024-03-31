@@ -1,11 +1,11 @@
-import { Menu } from './assets/menuOptions'
+import { MenuOptions } from './assets/menuOptions'
 import logo from '../../imgs/boxeo_y_filosofia_shortened.png'
 import Dropdown from './Dropdown/Dropdown'
 import { useState } from 'react'
 
 export type DropdownState = { [key: string]: boolean }
 
-const setInitialDropdownState = (menuOptions: Menu): DropdownState => {
+const setInitialDropdownState = (menuOptions: MenuOptions): DropdownState => {
   const state: DropdownState = {}
 
   for (let index = 0; index < menuOptions.length; index++) {
@@ -15,7 +15,7 @@ const setInitialDropdownState = (menuOptions: Menu): DropdownState => {
   return state
 }
 
-function HeaderMenu({ menuOptions }: { menuOptions: Menu }) {
+function Menu({ menuOptions }: { menuOptions: MenuOptions }) {
   const [dropdowns, setDropdowns] = useState<DropdownState>(
     setInitialDropdownState(menuOptions),
   )
@@ -41,4 +41,4 @@ function HeaderMenu({ menuOptions }: { menuOptions: Menu }) {
   )
 }
 
-export default HeaderMenu
+export default Menu

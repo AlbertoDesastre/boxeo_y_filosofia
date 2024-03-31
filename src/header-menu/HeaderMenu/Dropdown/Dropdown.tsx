@@ -1,4 +1,4 @@
-import { DropdownState } from '../HeaderMenu'
+import { DropdownState } from '../Menu'
 import './Dropdown.css'
 import { useDropdown } from './useDropdown'
 

@@ -1,11 +1,11 @@
 import './index.css'
-import HeaderMenu from './header-menu/HeaderMenu/HeaderMenu'
+import MenuOptions from './header-menu/HeaderMenu/Menu'
 import { menuOptions } from './header-menu/HeaderMenu/assets/menuOptions'
 
 function App() {
   return (
     <>
-      <HeaderMenu menuOptions={menuOptions} />
+      <Menu menuOptions={menuOptions} />
       <section>
         <h1>Filosofía dentro del boxeo</h1>
       </section>

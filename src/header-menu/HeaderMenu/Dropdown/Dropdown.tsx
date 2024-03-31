@@ -5,16 +5,16 @@ import { useDropdown } from './useDropdown'
 function Dropdown({
   title,
   dropdown,
-  setShowDropdown,
-  showDropdown,
+  setDropdowns,
+  dropdowns,
 }: {
   title: string
   dropdown: Array<{ option: string; redirection: string }>
-  setShowDropdown: React.Dispatch<React.SetStateAction<DropdownState>>
-  showDropdown: DropdownState
+  setDropdowns: React.Dispatch<React.SetStateAction<DropdownState>>
+  dropdowns: DropdownState
 }) {
-  const { reset } = useDropdown()
-  console.log(showDropdown)
+  const { updateActiveDropdown } = useDropdown()
+
   return (
     <section className='flex flex-col text-gray-400 gap-3'>
       <h2>
@@ -22,17 +22,19 @@ function Dropdown({
           onClick={() => {
             // this beautiful piece of code means that the object will spread entirely, but only the dropdown owned
             // by the title will toggle it's value.
-            setShowDropdown({ ...reset(showDropdown), [title]: !showDropdown[title] })
+            setDropdowns({
+              ...updateActiveDropdown({ dropdowns, thisDropdown: title }),
+            })
           }}
         >
           {title}
         </p>
       </h2>
 
-      {showDropdown && (
+      {dropdowns && (
         <ul className='absolute mt-5' style={{ backgroundColor: '#fff8e7' }}>
           {dropdown.map((sltc) => (
-            <li key={sltc.option} className={showDropdown[title] ? 'show-dropdown' : 'hide'}>
+            <li key={sltc.option} className={dropdowns[title] ? 'show-dropdown' : 'hide'}>
               <a href={sltc.redirection}>{sltc.option}</a>
             </li>
           ))}

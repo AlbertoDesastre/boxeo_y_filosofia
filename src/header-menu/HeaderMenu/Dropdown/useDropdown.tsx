@@ -1,15 +1,25 @@
 import { DropdownState } from '../HeaderMenu'
 
 export function useDropdown() {
-  const reset = (dropdowns: DropdownState) => {
-    const resettedDropdowns: DropdownState = {}
+  const updateActiveDropdown = ({
+    dropdowns,
+    thisDropdown,
+  }: {
+    dropdowns: DropdownState
+    thisDropdown: string
+  }) => {
+    const newDropdowns: DropdownState = {}
 
+    // resets all dropdowns to false
     Object.keys(dropdowns).forEach((key) => {
-      resettedDropdowns[key] = false
+      newDropdowns[key] = false
     })
 
-    return resettedDropdowns
+    //only the active dropdown gets it's value changed
+    newDropdowns[thisDropdown] = !newDropdowns[thisDropdown]
+
+    return newDropdowns
   }
 
-  return { reset }
+  return { updateActiveDropdown }
 }

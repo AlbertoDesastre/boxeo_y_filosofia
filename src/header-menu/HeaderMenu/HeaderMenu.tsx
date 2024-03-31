@@ -16,7 +16,7 @@ const setInitialDropdownState = (menuOptions: Menu): DropdownState => {
 }
 
 function HeaderMenu({ menuOptions }: { menuOptions: Menu }) {
-  const [showDropdown, setShowDropdown] = useState<DropdownState>(
+  const [dropdowns, setDropdowns] = useState<DropdownState>(
     setInitialDropdownState(menuOptions),
   )
 
@@ -31,8 +31,8 @@ function HeaderMenu({ menuOptions }: { menuOptions: Menu }) {
               key={options.main.title}
               title={options.main.title}
               dropdown={options.dropdown}
-              setShowDropdown={setShowDropdown}
-              showDropdown={showDropdown}
+              setDropdowns={setDropdowns}
+              dropdowns={dropdowns}
             />
           )
         })}

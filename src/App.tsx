@@ -1,5 +1,5 @@
 import './index.css'
-import MenuOptions from './header-menu/HeaderMenu/Menu'
+import Menu from './header-menu/HeaderMenu/Menu'
 import { menuOptions } from './header-menu/HeaderMenu/assets/menuOptions'
 
 function App() {
